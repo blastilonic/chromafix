@@ -1,0 +1,46 @@
+# Backend
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+venv_gpu/
+*.env
+
+# Models i datasets
+backend/app/models_store/*.pth
+backend/app/models_store/*.json
+backend/app/models_store/*.pt
+backend/app/models_store/*.onnx
+!backend/app/models_store/.gitkeep
+*.pth
+*.pt
+datasets/
+uploads/
+
+# Imatges
+*.png
+*.jpg
+*.jpeg
+!frontend/src/assets/*
+
+# Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.sln
+*.sw?
