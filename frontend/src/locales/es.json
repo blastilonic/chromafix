@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "subtitle": "Corrección de color",
+    "train": "Entrenar",
+    "trainDescription": "Entrenamiento de modelos",
+    "transform": "Transformar",
+    "transformDescription": "Transformar imágenes"
+  },
+  "train": {
+    "title": "Entrenamiento del modelo",
+    "description": "Carga los datos de entrenamiento y ajusta los parámetros para generar un nuevo modelo de corrección de color.",
+    "warning": "Aviso",
+    "warningDescription": "Es necesario especificar la ruta absoluta de las dos carpetas.",
+    "info": "Información",
+    "infoDescription": "Iniciando el entrenamiento de PyTorch:",
+    "epochs": "épocas",
+    "dataset": {
+        "title": "Conjunto de datos de entrenamiento",
+        "description": "Introduce las rutas donde se encuentran las imágenes del conjunto de datos.",
+        "beforeTitle": "Ruta de la carpeta de imágenes de entrada (antes)",
+        "afterTitle": "Ruta de la carpeta de imágenes objetivo (después)"
+    },
+    "config": {
+        "title": "Configuración del modelo",
+        "name": "Nombre",
+        "description": "Descripción",
+        "epochs": "Épocas",
+        "batchSize": "Tamaño del lote",
+        "learningRate": "Tasa de aprendizaje",
+        "btnStart": "Iniciar entrenamiento",
+        "btnStarted": "Entrenamiento en curso..."
+    },
+    "progress": {
+        "title": "Progreso del entrenamiento",
+        "epoch": "Época",
+        "of": "de",
+        "loss": "Pérdida",
+        "remainingTime": "Tiempo restante",
+        "processing": "En proceso",
+        "completed": "Completado"
+    },
+    "console": {
+        "title": "Consola de ejecución en directo",
+        "label": "Esperando el inicio del entrenamiento...",
+        "processing": "Procesando PyTorch...",
+        "success": "Éxito",
+        "completed": "¡Entrenamiento completado correctamente! Pérdida final:",
+        "saved": "Modelo guardado correctamente en"
+    }   
+  },
+  "transform": {
+    "title": "Transformar imagen",
+    "description": "Aplica un modelo entrenado a una imagen y compara el resultado.",
+    "imageSelector": {
+        "title": "Imagen de entrada",
+        "description": "Carga la imagen a la que quieres aplicar el filtro de color.",
+        "step": "Haz clic para seleccionar una imagen",
+        "formats": "Formatos compatibles: PNG, JPG, WEBP"
+    },
+    "modelSelector": {
+        "title": "Modelo de corrección",
+        "loading": "Cargando modelos...",
+        "select": "Selecciona un modelo",
+        "rounds": "vueltas",
+        "loss": "Pérdida final",
+        "size": "Tamaño",
+        "date": "Fecha",
+        "update": "Actualizar los modelos"
+    },
+    "comparation": {
+        "title": "Comparativa",
+        "description": "Compara el resultado con la imagen original.",
+        "label": "Aplica la corrección para ver la comparativa",
+        "processing": "Procesando la imagen...",
+        "save": "guardar",
+        "original": "Original",
+        "corrected": "Corregida"
+    }
+  },
+  "languages": {
+    "ca": "Catalán",
+    "es": "Castellano",
+    "en": "Inglés",
+    "de": "Alemán",
+    "zh": "Chino"
+  }
+}

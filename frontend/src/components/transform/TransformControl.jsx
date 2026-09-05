@@ -8,10 +8,12 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 export default function TransformControl({ onTransform, isProcessing }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
+  const { t } = useTranslation();
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -32,10 +34,10 @@ export default function TransformControl({ onTransform, isProcessing }) {
       <CardHeader>
         <CardTitle className="text-lg flex items-center gap-2 text-white">
           <Upload className="w-5 h-5 text-indigo-400" />
-          Imatge d'Entrada
+          {t("transform.imageSelector.title")}
         </CardTitle>
         <CardDescription className="text-slate-400">
-          Carrega la imatge sobre la qual vols aplicar el filtre de color.
+          {t("transform.imageSelector.description")}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -49,10 +51,10 @@ export default function TransformControl({ onTransform, isProcessing }) {
           />
           <ImageIcon className="w-10 h-10 text-slate-500 mb-2" />
           <span className="text-sm font-medium text-slate-300">
-            Fes clic per seleccionar una imatge
+            {t("transform.imageSelector.step")}
           </span>
           <span className="text-xs text-slate-500 mt-1">
-            Formats suportats: PNG, JPG, WEBP
+            {t("transform.imageSelector.formats")}
           </span>
         </label>
 

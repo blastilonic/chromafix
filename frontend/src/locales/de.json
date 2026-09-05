@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "subtitle": "Farbkorrektur",
+    "train": "Trainieren",
+    "trainDescription": "Modelltraining",
+    "transform": "Transformieren",
+    "transformDescription": "Bilder transformieren"
+  },
+  "train": {
+    "title": "Modelltraining",
+    "description": "Lade die Trainingsdaten und passe die Parameter an, um ein neues Farbkorrekturmodell zu erstellen.",
+    "warning": "Warnung",
+    "warningDescription": "Der absolute Pfad beider Ordner muss angegeben werden.",
+    "info": "Information",
+    "infoDescription": "PyTorch-Training wird gestartet:",
+    "epochs": "Epochen",
+    "dataset": {
+      "title": "Trainingsdatensatz",
+      "description": "Gib die Pfade zu den Ordnern mit den Datensatzbildern ein.",
+      "beforeTitle": "Pfad zum Ordner der Eingabebilder (Vorher)",
+      "afterTitle": "Pfad zum Ordner der Zielbilder (Nachher)"
+    },
+    "config": {
+      "title": "Modelleinstellungen",
+      "name": "Name",
+      "description": "Beschreibung",
+      "epochs": "Epochen",
+      "batchSize": "Batchgröße",
+      "learningRate": "Lernrate",
+      "btnStart": "Training starten",
+      "btnStarted": "Training läuft..."
+    },
+    "progress": {
+      "title": "Trainingsfortschritt",
+      "epoch": "Epoche",
+      "of": "von",
+      "loss": "Verlust",
+      "remainingTime": "Verbleibende Zeit",
+      "processing": "In Bearbeitung",
+      "completed": "Abgeschlossen"
+    },
+    "console": {
+      "title": "Live-Ausführungskonsole",
+      "label": "Warten auf den Trainingsstart...",
+      "processing": "PyTorch wird verarbeitet...",
+      "success": "Erfolg",
+      "completed": "Training erfolgreich abgeschlossen! Finaler Verlust:",
+      "saved": "Modell erfolgreich gespeichert unter"
+    }
+  },
+  "transform": {
+    "title": "Bild transformieren",
+    "description": "Wende ein trainiertes Modell auf ein Bild an und vergleiche das Ergebnis.",
+    "imageSelector": {
+      "title": "Eingabebild",
+      "description": "Lade das Bild, auf das du den Farbfilter anwenden möchtest.",
+      "step": "Klicke, um ein Bild auszuwählen",
+      "formats": "Unterstützte Formate: PNG, JPG, WEBP"
+    },
+    "modelSelector": {
+      "title": "Korrekturmodell",
+      "loading": "Modelle werden geladen...",
+      "select": "Modell auswählen",
+      "rounds": "Runden",
+      "loss": "Finaler Verlust",
+      "size": "Größe",
+      "date": "Datum",
+      "update": "Modelle aktualisieren"
+    },
+    "comparation": {
+      "title": "Vergleich",
+      "description": "Vergleiche das Ergebnis mit dem Originalbild.",
+      "label": "Wende die Korrektur an, um den Vergleich zu sehen",
+      "processing": "Bild wird verarbeitet...",
+      "save": "speichern",
+      "original": "Original",
+      "corrected": "Korrigiert"
+    }
+  },
+  "languages": {
+    "ca": "Katalanisch",
+    "es": "Spanisch",
+    "en": "Englisch",
+    "de": "Deutsch",
+    "zh": "Chinesisch"
+  }
+}

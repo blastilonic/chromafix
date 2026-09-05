@@ -8,22 +8,25 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 export default function ImageComparer({
   beforeImage = null,
   afterImage = null,
   isProcessing = false,
 }) {
+  const { t } = useTranslation();
+
   return (
     <Card className="bg-slate-900 border-slate-800 text-slate-100">
       <CardHeader className="flex flex-row items-center justify-between pb-3">
         <div>
           <CardTitle className="text-lg flex items-center gap-2 text-white">
             <Sparkles className="w-5 h-5 text-indigo-400" />
-            Comparativa
+            {t("transform.comparation.title")}
           </CardTitle>
           <CardDescription className="text-slate-400">
-            Compara el resultat amb la imatge original.
+            {t("transform.comparation.description")}
           </CardDescription>
         </div>
         {afterImage && !isProcessing && (
@@ -33,7 +36,7 @@ export default function ImageComparer({
               className="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center gap-1.5"
             >
               <Download className="w-4 h-4" />
-              Guardar
+              {t("transform.comparation.save")}
             </Button>
           </a>
         )}
@@ -42,21 +45,23 @@ export default function ImageComparer({
         {isProcessing ? (
           <div className="h-80 bg-slate-950/60 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-3">
             <div className="w-8 h-8 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
-            <span className="text-sm text-slate-400">Processant imatge...</span>
+            <span className="text-sm text-slate-400">
+              {t("transform.comparation.processing")}
+            </span>
           </div>
         ) : !beforeImage ? (
           <div className="h-80 bg-slate-950/60 rounded-xl border border-slate-800 flex items-center justify-center text-slate-500 text-sm">
-            Aplica la correcció per veure la comparativa
+            {t("transform.comparation.label")}
           </div>
         ) : (
           <div className="mx-auto max-h-600px] max-w-5xl overflow-hidden rounded-xl border border-slate-800 bg-slate-950/60">
             <ReactCompareImage
               leftImage={beforeImage}
               rightImage={afterImage || beforeImage}
-              leftImageAlt="Original"
-              rightImageAlt="Després"
-              leftImageLabel="Original"
-              rightImageLabel="Corregit"
+              leftImageAlt={t("transform.comparation.original")}
+              rightImageAlt={t("transform.comparation.corrected")}
+              leftImageLabel={t("transform.comparation.original")}
+              rightImageLabel={t("transform.comparation.corrected")}
               leftImageCss={{ objectFit: "contain" }}
               rightImageCss={{ objectFit: "contain" }}
               sliderPositionPercentage={0.5}

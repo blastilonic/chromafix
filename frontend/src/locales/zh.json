@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "subtitle": "色彩校正",
+    "train": "训练",
+    "trainDescription": "模型训练",
+    "transform": "转换",
+    "transformDescription": "转换图像"
+  },
+  "train": {
+    "title": "模型训练",
+    "description": "加载训练数据并调整参数，以生成新的色彩校正模型。",
+    "warning": "警告",
+    "warningDescription": "必须指定两个文件夹的绝对路径。",
+    "info": "信息",
+    "infoDescription": "正在开始 PyTorch 训练：",
+    "epochs": "轮",
+    "dataset": {
+      "title": "训练数据集",
+      "description": "输入数据集图像所在的路径。",
+      "beforeTitle": "输入图像文件夹路径（之前）",
+      "afterTitle": "目标图像文件夹路径（之后）"
+    },
+    "config": {
+      "title": "模型配置",
+      "name": "名称",
+      "description": "描述",
+      "epochs": "训练轮数",
+      "batchSize": "批次大小",
+      "learningRate": "学习率",
+      "btnStart": "开始训练",
+      "btnStarted": "训练进行中..."
+    },
+    "progress": {
+      "title": "训练进度",
+      "epoch": "轮次",
+      "of": "/",
+      "loss": "损失",
+      "remainingTime": "剩余时间",
+      "processing": "处理中",
+      "completed": "已完成"
+    },
+    "console": {
+      "title": "实时执行控制台",
+      "label": "等待开始训练...",
+      "processing": "正在处理 PyTorch...",
+      "success": "成功",
+      "completed": "训练成功完成！最终损失：",
+      "saved": "模型已成功保存至"
+    }
+  },
+  "transform": {
+    "title": "转换图像",
+    "description": "将训练好的模型应用于图像并比较结果。",
+    "imageSelector": {
+      "title": "输入图像",
+      "description": "加载要应用色彩滤镜的图像。",
+      "step": "点击以选择图像",
+      "formats": "支持的格式：PNG、JPG、WEBP"
+    },
+    "modelSelector": {
+      "title": "校正模型",
+      "loading": "正在加载模型...",
+      "select": "选择模型",
+      "rounds": "轮",
+      "loss": "最终损失",
+      "size": "大小",
+      "date": "日期",
+      "update": "刷新模型"
+    },
+    "comparation": {
+      "title": "对比",
+      "description": "将结果与原始图像进行比较。",
+      "label": "应用校正以查看对比结果",
+      "processing": "正在处理图像...",
+      "save": "保存",
+      "original": "原始",
+      "corrected": "已校正"
+    }
+  },
+  "languages": {
+    "ca": "加泰罗尼亚语",
+    "es": "西班牙语",
+    "en": "英语",
+    "de": "德语",
+    "zh": "中文"
+  }
+}

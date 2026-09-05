@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Settings, Play } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 export default function TrainingConfig({ onStartTraining, isTraining }) {
   const [modelName, setModelName] = useState("");
@@ -9,6 +10,7 @@ export default function TrainingConfig({ onStartTraining, isTraining }) {
   const [epochs, setEpochs] = useState(50);
   const [batchSize, setBatchSize] = useState(16);
   const [learningRate, setLearningRate] = useState(0.001);
+  const { t } = useTranslation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,32 +30,34 @@ export default function TrainingConfig({ onStartTraining, isTraining }) {
       <CardHeader>
         <CardTitle className="text-lg flex items-center gap-2 text-white">
           <Settings className="w-5 h-5 text-indigo-400" />
-          Configuració del Model
+          {t("train.config.title")}
         </CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-1">
-              <label className="text-xs font-medium text-slate-300">Nom</label>
+              <label className="text-xs font-medium text-slate-300">
+                {t("train.config.name")}
+              </label>
               <input
                 type="text"
                 value={modelName}
                 onChange={(e) => setModelName(e.target.value)}
                 required
-                placeholder="Nom"
+                placeholder={t("train.config.name")}
                 className="w-full p-2 text-sm rounded bg-slate-950 border border-slate-800 text-slate-200 focus:outline-none focus:border-indigo-500"
               />
             </div>
             <div className="space-y-1">
               <label className="text-xs font-medium text-slate-300">
-                Descripció
+                {t("train.config.description")}
               </label>
               <input
                 type="text"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                placeholder="Descripció"
+                placeholder={t("train.config.description")}
                 className="w-full p-2 text-sm rounded bg-slate-950 border border-slate-800 text-slate-200 focus:outline-none focus:border-indigo-500"
               />
             </div>
@@ -62,7 +66,7 @@ export default function TrainingConfig({ onStartTraining, isTraining }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="space-y-1">
               <label className="text-xs font-medium text-slate-300">
-                Èpoques (Epochs)
+                {t("train.config.epochs")}
               </label>
               <input
                 type="number"
@@ -74,7 +78,7 @@ export default function TrainingConfig({ onStartTraining, isTraining }) {
             </div>
             <div className="space-y-1">
               <label className="text-xs font-medium text-slate-300">
-                Mida del Lot (Batch Size)
+                {t("train.config.batchSize")}
               </label>
               <select
                 value={batchSize}
@@ -89,7 +93,7 @@ export default function TrainingConfig({ onStartTraining, isTraining }) {
             </div>
             <div className="space-y-1">
               <label className="text-xs font-medium text-slate-300">
-                Learning Rate
+                {t("train.config.learningRate")}
               </label>
               <input
                 type="number"
@@ -107,7 +111,9 @@ export default function TrainingConfig({ onStartTraining, isTraining }) {
             className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2 rounded transition-colors flex items-center justify-center gap-2"
           >
             <Play className="w-4 h-4 fill-current" />
-            {isTraining ? "Entrenament en curs..." : "Iniciar Entrenament"}
+            {isTraining
+              ? t("train.config.btnStarted")
+              : t("train.config.btnStart")}
           </Button>
         </form>
       </CardContent>

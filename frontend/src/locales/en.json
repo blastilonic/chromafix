@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "subtitle": "Color correction",
+    "train": "Train",
+    "trainDescription": "Model training",
+    "transform": "Transform",
+    "transformDescription": "Transform images"
+  },
+  "train": {
+    "title": "Model Training",
+    "description": "Load the training data and adjust the parameters to generate a new color correction model.",
+    "warning": "Warning",
+    "warningDescription": "The absolute path of both folders must be specified.",
+    "info": "Information",
+    "infoDescription": "Starting PyTorch training:",
+    "epochs": "epochs",
+    "dataset": {
+      "title": "Training Dataset",
+      "description": "Enter the paths where the dataset images are located.",
+      "beforeTitle": "Input Images Folder Path (Before)",
+      "afterTitle": "Target Images Folder Path (After)"
+    },
+    "config": {
+      "title": "Model Configuration",
+      "name": "Name",
+      "description": "Description",
+      "epochs": "Epochs",
+      "batchSize": "Batch Size",
+      "learningRate": "Learning Rate",
+      "btnStart": "Start Training",
+      "btnStarted": "Training in progress..."
+    },
+    "progress": {
+      "title": "Training Progress",
+      "epoch": "Epoch",
+      "of": "of",
+      "loss": "Loss",
+      "remainingTime": "Time remaining",
+      "processing": "In progress",
+      "completed": "Completed"
+    },
+    "console": {
+      "title": "Live Execution Console",
+      "label": "Waiting for training to start...",
+      "processing": "Processing PyTorch...",
+      "success": "Success",
+      "completed": "Training completed successfully! Final loss:",
+      "saved": "Model saved successfully to"
+    }
+  },
+  "transform": {
+    "title": "Transform Image",
+    "description": "Apply a trained model to an image and compare the result.",
+    "imageSelector": {
+      "title": "Input Image",
+      "description": "Load the image to which you want to apply the color filter.",
+      "step": "Click to select an image",
+      "formats": "Supported formats: PNG, JPG, WEBP"
+    },
+    "modelSelector": {
+      "title": "Correction Model",
+      "loading": "Loading models...",
+      "select": "Select a model",
+      "rounds": "rounds",
+      "loss": "Final loss",
+      "size": "Size",
+      "date": "Date",
+      "update": "Refresh models"
+    },
+    "comparation": {
+      "title": "Comparison",
+      "description": "Compare the result with the original image.",
+      "label": "Apply the correction to see the comparison",
+      "processing": "Processing the image...",
+      "save": "save",
+      "original": "Original",
+      "corrected": "Corrected"
+    }
+  },
+  "languages": {
+    "ca": "Catalan",
+    "es": "Spanish",
+    "en": "English",
+    "de": "German",
+    "zh": "Chinese"
+  }
+}
