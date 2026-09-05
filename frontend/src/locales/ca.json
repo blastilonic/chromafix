@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "subtitle": "Correcció de color",
+    "train": "Entrenar",
+    "trainDescription": "Entrenament de models",
+    "transform": "Transformar",
+    "transformDescription": "Transformar imatges"
+  },
+  "train": {
+    "title": "Entrenament del Model",
+    "description": "Carrega les dades d'entrenament i ajusta els paràmetres per generar un nou model de correcció de color.",
+    "warning": "Avís",
+    "warningDescription": "Cal especificar la ruta absoluta de les dues carpetes.",
+    "info": "Informació",
+    "infoDescription": "Iniciant entrenament de PyTorch:",
+    "epochs": "èpoques",
+    "dataset": {
+        "title": "Dataset d'Entrenament",
+        "description": "Introdueix les rutes on es troben les imatges del datset.",
+        "beforeTitle": "Ruta Carpeta Imatges d'Entrada (Abans)",
+        "afterTitle": "Ruta Carpeta Imatges Objectiu (Després)"
+    },
+    "config": {
+        "title": "Configuració del Model",
+        "name": "Nom",
+        "description": "Descripció",
+        "epochs": "Èpoques",
+        "batchSize": "Mida del Lot",
+        "learningRate": "Taxa d'aprenentatge",
+        "btnStart": "Iniciar Entrenament",
+        "btnStarted": "Entrenament en curs..."
+    },
+    "progress": {
+        "title": "Progrés de l'Entrenament",
+        "epoch": "Època",
+        "of": "de",
+        "loss": "Pèrdua",
+        "remainingTime": "Temps restant",
+        "processing": "En procès",
+        "completed": "Completat"
+    },
+    "console": {
+        "title": "Consola d'Execució en Directe",
+        "label": "Esperant l'inici de l'entrenament...",
+        "processing": "Processant PyTorch...",
+        "success": "Èxit",
+        "completed": "Entrenament completat amb èxit! Loss final:",
+        "saved": "Model guardat correctament a"
+    }   
+  },
+  "transform": {
+    "title": "Transformar imatge",
+    "description": "Aplica un model entrenat sobre una imatge i compara el resultat.",
+    "imageSelector": {
+        "title": "Imatge d'Entrada",
+        "description": "Carrega la imatge sobre la qual vols aplicar el filtre de color.",
+        "step": "Fes clic per seleccionar una imatge",
+        "formats": "Formats suportats: PNG, JPG, WEBP"
+    },
+    "modelSelector": {
+        "title": "Model de correcció",
+        "loading": "Carregant models...",
+        "select": "Selecciona un model",
+        "rounds": "voltes",
+        "loss": "Pèrdua final",
+        "size": "Mida",
+        "date": "Data",
+        "update": "Actualitzar els models"
+    },
+    "comparation": {
+        "title": "Comparativa",
+        "description": "Compara el resultat amb la imatge original.",
+        "label": "Aplica la correcció per veure la comparativa",
+        "processing": "Processant la imatge...",
+        "save": "guardar",
+        "original": "Original",
+        "corrected": "Corregit"
+    }
+  },
+  "languages": {
+    "ca": "Català",
+    "es": "Castellà",
+    "en": "Anglès",
+    "de": "Alemany",
+    "zh": "Xinès"
+  }
+}

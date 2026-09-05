@@ -1,4 +1,5 @@
 import { Cpu, RefreshCw } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function ModelSelector({
   models = [],
@@ -8,6 +9,7 @@ export default function ModelSelector({
   isLoading = false,
 }) {
   const selectedModel = models.find((model) => model.id === selectedModelId);
+  const { t } = useTranslation();
 
   return (
     <section className="rounded-lg border border-slate-800 bg-slate-900 p-5 text-slate-100">
@@ -17,14 +19,14 @@ export default function ModelSelector({
           className="flex items-center gap-2 font-semibold"
         >
           <Cpu className="h-5 w-5 text-indigo-400" />
-          Model de correcció
+          {t("transform.modelSelector.title")}
         </label>
         {onRefresh && (
           <button
             type="button"
             onClick={onRefresh}
             disabled={isLoading}
-            aria-label="Actualitzar models"
+            aria-label={t("transform.modelSelector.update")}
             title="Actualitzar models"
             className="rounded-md p-2 text-slate-400 hover:bg-slate-800 hover:text-white disabled:opacity-50"
           >
@@ -43,7 +45,9 @@ export default function ModelSelector({
         className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 outline-none focus:border-indigo-500"
       >
         <option value="">
-          {isLoading ? "Carregant models..." : "Selecciona un model"}
+          {isLoading
+            ? t("transform.modelSelector.loading")
+            : t("transform.modelSelector.select")}
         </option>
         {models.map((model) => (
           <option key={model.id} value={model.id}>
@@ -61,11 +65,11 @@ export default function ModelSelector({
           )}
           <dl className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-2">
             <div>
-              <dt>Voltes</dt>
+              <dt>{t("transform.modelSelector.rounds")}</dt>
               <dd className="text-slate-200">{selectedModel.epochs ?? "-"}</dd>
             </div>
             <div>
-              <dt>Pèrdua final</dt>
+              <dt>{t("transform.modelSelector.loss")}</dt>
               <dd className="text-slate-200">
                 {selectedModel.final_loss ?? "-"}
               </dd>
@@ -73,11 +77,11 @@ export default function ModelSelector({
           </dl>
           <dl className="mt-4 grid grid-cols-6 gap-x-6 gap-y-2 sm:grid-cols-2">
             <div>
-              <dt>Mida</dt>
+              <dt>{t("transform.modelSelector.size")}</dt>
               <dd className="text-slate-200">{selectedModel.size ?? "-"}</dd>
             </div>
             <div>
-              <dt>Data</dt>
+              <dt>{t("transform.modelSelector.date")}</dt>
               <dd className="text-slate-200">
                 {selectedModel.created_at ?? "-"}
               </dd>

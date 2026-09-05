@@ -1,18 +1,26 @@
 import { Sliders, Sparkles } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function SidebarNav({ activeTab, setActiveTab }) {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem("lang", lng);
+  };
+
   const menuItems = [
     {
       id: "train",
-      label: "Entrenar",
+      label: t("nav.train"),
       icon: Sliders,
-      description: "Entrenament de models",
+      description: t("nav.trainDescription"),
     },
     {
       id: "transform",
-      label: "Transformar",
+      label: t("nav.transform"),
       icon: Sparkles,
-      description: "Inferència i comparació",
+      description: t("nav.transformDescription"),
     },
   ];
 
@@ -24,7 +32,7 @@ export default function SidebarNav({ activeTab, setActiveTab }) {
           <h1 className="font-bold text-lg tracking-tight leading-none text-white">
             ChromaFix
           </h1>
-          <span className="text-xs text-slate-400">Correcció de color</span>
+          <span className="text-xs text-slate-400">{t("nav.subtitle")}</span>
         </div>
       </div>
 
@@ -56,6 +64,29 @@ export default function SidebarNav({ activeTab, setActiveTab }) {
           );
         })}
       </nav>
+
+      <select
+        id="languageSelector"
+        value={i18n.language}
+        onChange={(event) => changeLanguage(event.target.value)}
+        className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 outline-none focus:border-indigo-500"
+      >
+        <option key="ca" value="ca">
+          {t("languages.ca")}
+        </option>
+        <option key="es" value="es">
+          {t("languages.es")}
+        </option>
+        <option key="en" value="en">
+          {t("languages.en")}
+        </option>
+        <option key="de" value="de">
+          {t("languages.de")}
+        </option>
+        <option key="zh" value="zh">
+          {t("languages.zh")}
+        </option>
+      </select>
 
       <div className="pt-4 border-t border-slate-800 px-2 text-xs text-slate-500 text-center">
         v1.0.0

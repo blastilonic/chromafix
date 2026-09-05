@@ -4,19 +4,18 @@ import TrainingConfig from "@/components/training/TrainingConfig";
 import TrainingProgress from "@/components/training/TrainingProgress";
 import { Terminal, Loader2 } from "lucide-react";
 import { startTraining } from "@/services/api";
+import { useTranslation } from "react-i18next";
 
 export default function TrainPage() {
   const [datasetInfo, setDatasetInfo] = useState(null);
   const [isTraining, setIsTraining] = useState(false);
   const [localLogs, setLocalLogs] = useState([]);
-
-  // Estats per a la barra de progrés
   const [currentEpoch, setCurrentEpoch] = useState(0);
   const [totalEpochs, setTotalEpochs] = useState(100);
   const [currentLoss, setCurrentLoss] = useState(null);
   const [estimatedTimeLeft, setEstimatedTimeLeft] = useState("--:--");
-
   const startTimeRef = useRef(null);
+  const { t } = useTranslation();
 
   const addLog = (type, message) => {
     const time = new Date().toLocaleTimeString();
@@ -42,14 +41,10 @@ export default function TrainPage() {
 
   const handleStartTraining = async (config) => {
     if (!datasetInfo || !datasetInfo.inputDir || !datasetInfo.targetDir) {
-      addLog(
-        "warning",
-        "Cal especificar la ruta absoluta de les dues carpetes.",
-      );
+      addLog(t("train.warning"), t("train.warningDescription"));
       return;
     }
 
-    // Reinicialitzem estats de progrés
     setIsTraining(true);
     setCurrentEpoch(0);
     setTotalEpochs(config.epochs);
@@ -58,8 +53,8 @@ export default function TrainPage() {
     startTimeRef.current = Date.now();
 
     addLog(
-      "info",
-      `Iniciant entrenament de PyTorch: ${config.modelName} (${config.epochs} èpoques, batch size: ${config.batchSize}, lr: ${config.learningRate})...`,
+      t("train.info"),
+      `${t("train.infoDescription")} ${config.modelName} (${config.epochs} ${t("train.epochs")}, ${t("train.config.batchSize")}: ${config.batchSize}, lr: ${config.learningRate})...`,
     );
 
     try {
@@ -85,13 +80,11 @@ export default function TrainPage() {
             try {
               const parsed = JSON.parse(jsonStr);
 
-              // Actualitzar logs i barra quan arriba cada epoch
               if (parsed.epoch !== undefined) {
                 setCurrentEpoch(parsed.epoch);
                 setTotalEpochs(parsed.total_epochs || config.epochs);
                 setCurrentLoss(parsed.loss);
 
-                // Càlcul del temps restant (ETA)
                 const elapsedSeconds =
                   (Date.now() - startTimeRef.current) / 1000;
                 const avgTimePerEpoch = elapsedSeconds / parsed.epoch;
@@ -109,12 +102,12 @@ export default function TrainPage() {
                 setCurrentEpoch(config.epochs);
                 setEstimatedTimeLeft("Completat");
                 addLog(
-                  "success",
-                  `Entrenament completat amb èxit! Loss final: ${parsed.metadata?.final_loss ?? "N/A"}`,
+                  t("train.console.success"),
+                  `${t("train.console.completed")} ${parsed.metadata?.final_loss ?? "N/A"}`,
                 );
                 addLog(
-                  "success",
-                  `Model guardat correctament a /models_store/${parsed.metadata?.id}.pth`,
+                  t("train.console.success"),
+                  `${t("train.console.saved")} /models_store/${parsed.metadata?.id}.pth`,
                 );
               } else if (parsed.error) {
                 addLog("error", `Error: ${parsed.error}`);
@@ -137,12 +130,9 @@ export default function TrainPage() {
     <div className="space-y-6 max-w-6xl mx-auto">
       <div>
         <h2 className="text-2xl font-bold tracking-tight text-white">
-          Entrenament del Model
+          {t("train.title")}
         </h2>
-        <p className="text-slate-400 text-sm">
-          Carrega les dades d'entrenament i ajusta els paràmetres per generar un
-          nou model de correcció de color.
-        </p>
+        <p className="text-slate-400 text-sm">{t("train.description")}</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -164,17 +154,16 @@ export default function TrainPage() {
         />
       </div>
       <div className="space-y-12">
-        {/* Panell de Terminal / Logs de Sortida */}
         <div className="bg-slate-900 border border-slate-800 rounded-lg p-4 flex flex-col h-[280px]">
           <div className="flex items-center justify-between pb-3 border-b border-slate-800 mb-3">
             <div className="flex items-center gap-2 text-white font-medium text-sm">
               <Terminal className="w-4 h-4 text-indigo-400" />
-              <span>Consola d'Execució en Directe</span>
+              <span>{t("train.console.title")}</span>
             </div>
             {isTraining && (
               <span className="flex items-center gap-2 text-xs text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20 animate-pulse">
                 <Loader2 className="w-3 h-3 animate-spin" />
-                Processant PyTorch...
+                {t("train.console.processing")}
               </span>
             )}
           </div>
@@ -182,7 +171,7 @@ export default function TrainPage() {
           <div className="flex-1 overflow-y-auto font-mono text-xs space-y-2 pr-2">
             {localLogs.length === 0 ? (
               <p className="text-slate-500 italic">
-                Esperant l'inici de l'entrenament...
+                {t("train.console.label")}
               </p>
             ) : (
               localLogs.map((log, index) => (

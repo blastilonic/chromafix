@@ -7,10 +7,12 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
+import { useTranslation } from "react-i18next";
 
 export default function DatasetUploader({ onDatasetSelect }) {
   const [inputPath, setInputPath] = useState("");
   const [targetPath, setTargetPath] = useState("");
+  const { t } = useTranslation();
 
   const notifyParent = (input, target) => {
     if (onDatasetSelect) {
@@ -38,17 +40,17 @@ export default function DatasetUploader({ onDatasetSelect }) {
       <CardHeader>
         <CardTitle className="text-lg flex items-center gap-2 text-white">
           <FolderUp className="w-5 h-5 text-indigo-400" />
-          Dataset d'Entrenament
+          {t("train.dataset.title")}
         </CardTitle>
         <CardDescription className="text-slate-400">
-          Introdueix les rutes on es troben les imatges del datset.
+          {t("train.dataset.description")}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-2">
           <label className="text-xs font-medium text-slate-300 flex items-center gap-2">
             <Folder className="w-4 h-4 text-indigo-400" />
-            Ruta Carpeta Imatges d'Entrada (Abans)
+            {t("train.dataset.beforeTitle")}
           </label>
           <div className="flex gap-2">
             <input
@@ -67,7 +69,7 @@ export default function DatasetUploader({ onDatasetSelect }) {
         <div className="space-y-2">
           <label className="text-xs font-medium text-slate-300 flex items-center gap-2">
             <Folder className="w-4 h-4 text-indigo-400" />
-            Ruta Carpeta Imatges Objectiu (Després)
+            {t("train.dataset.afterTitle")}
           </label>
           <div className="flex gap-2">
             <input
